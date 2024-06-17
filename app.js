@@ -1,4 +1,5 @@
 const express = require('express');
+const dotenv = require('dotenv')
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -12,6 +13,8 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const app = express();
 app.use(helmet());
+// console.log(app.get('env'));
+// console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
